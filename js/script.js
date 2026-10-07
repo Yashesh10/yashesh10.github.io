@@ -44,7 +44,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // Typing effect for the role line
-const roles = ['Digital Forensics Analyst', 'Security Researcher', 'Detection Engineering', 'AI/ML Security'];
+const roles = ['SOC Analyst', 'Threat Detection', 'Threat Intelligence', 'Incident Response', 'DFIR Investigator'];
 const typed = document.getElementById('typed');
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (typed && !reduce) {
@@ -137,3 +137,14 @@ if ('IntersectionObserver' in window && !reduce) {
 } else {
   document.querySelectorAll('.bars').forEach(growBars);
 }
+
+// Coverage bar tooltips
+document.querySelectorAll('.seg[data-tip]').forEach(seg => {
+  const html = seg.dataset.tip;
+  seg.tabIndex = 0;
+  seg.addEventListener('mousemove', e => showTip(e, html));
+  seg.addEventListener('mouseleave', hideTip);
+  seg.addEventListener('focus', () => showTip({ currentTarget: seg }, html));
+  seg.addEventListener('blur', hideTip);
+  seg.addEventListener('touchstart', e => showTip({ currentTarget: seg, clientX: e.touches[0].clientX, clientY: e.touches[0].clientY }, html), { passive: true });
+});
