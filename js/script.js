@@ -44,7 +44,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // Typing effect for the role line
-const roles = ['SOC Analyst', 'Threat Detection', 'Threat Intelligence', 'Incident Response', 'DFIR Investigator'];
+const roles = ['SOC Analyst', 'Digital Forensics Analyst', 'Threat Detection', 'Threat Intelligence', 'Incident Response'];
 const typed = document.getElementById('typed');
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (typed && !reduce) {
