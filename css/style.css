@@ -459,3 +459,10 @@ strong { color: var(--text); font-weight: 600; }
   .stats li { padding: 18px 16px; }
   .stats strong { font-size: 22px; }
 }
+
+/* Mobile header + tap-target fixes */
+.menu-btn { margin-left: auto; margin-right: -10px; }
+.footer a { display: inline-block; padding: 10px 0; }
+@media (max-width: 760px) {
+  .logo { padding: 8px 0; }
+}
