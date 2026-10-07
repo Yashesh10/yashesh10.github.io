@@ -148,3 +148,11 @@ document.querySelectorAll('.seg[data-tip]').forEach(seg => {
   seg.addEventListener('blur', hideTip);
   seg.addEventListener('touchstart', e => showTip({ currentTarget: seg, clientX: e.touches[0].clientX, clientY: e.touches[0].clientY }, html), { passive: true });
 });
+
+// Logo / back-to-top: always return to the very top and clear the #hash
+document.querySelectorAll('a[href="#home"]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  setMenu(false);
+  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  history.replaceState(null, '', location.pathname);
+}));
